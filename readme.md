@@ -7,7 +7,7 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
-## 仿简书--精工学习使用
+## 仿简书--仅学习使用
 
 ## 搭建前端功能
 - 文章模块 （前台核心模块）
