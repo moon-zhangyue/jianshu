@@ -9,7 +9,7 @@ class PostController extends Controller
     //文章列表页
     public function index()
     {
-
+        return view('post/index');
     }
 
     //文章详情页
