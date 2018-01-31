@@ -18,8 +18,8 @@
 
 
     <!-- Custom styles for this template -->
-    <link href="css/blog.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="css/wangEditor.min.css">
+    <link href="/css/blog.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/wangEditor.min.css">
 
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
