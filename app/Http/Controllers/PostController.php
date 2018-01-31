@@ -9,13 +9,13 @@ class PostController extends Controller
     //文章列表页
     public function index()
     {
-        return view('post/index');
+        return view('post/index',array('aa'=>'dd'));
     }
 
     //文章详情页
     public function show()
     {
-
+        return view('post/show');
     }
 
     //创建文章

@@ -16,22 +16,21 @@
 //});
 
 
-Route::get('/', "\App\Http\Controllers\LoginController@index");  //首页
+Route::get('/', "\App\Http\Controllers\Auth\LoginController@index");  //首页
 
 
 Route::get('/posts','\App\Http\Controllers\PostController@index');//文章列表页
+
 //创建文章
 Route::get('/posts/create', '\App\Http\Controllers\PostController@create');
-Route::post('/posts', '\App\Http\Controllers\PostController@store');
+Route::post('/posts', '\App\Http\Controllers\PostController@store');//提交
 
 Route::get('/posts/search', '\App\Http\Controllers\PostController@search');
 Route::get('/posts/{post}', '\App\Http\Controllers\PostController@show');//文章详情页
 //编辑文章
-Route::get('/posts/{post}/edit', '\App\Http\Controllers\PostController@edit');
-Route::put('/posts/{post}', '\App\Http\Controllers\PostController@update');
-
-//删除文章
-Route::get('/posts/delete', '\App\Http\Controllers\PostController@delete');
+Route::get('/posts/{post}/edit', '\App\Http\Controllers\PostController@edit'); //模型绑定
+Route::put('/posts/{post}', '\App\Http\Controllers\PostController@update');//更新文章
+Route::get('/posts/delete', '\App\Http\Controllers\PostController@delete');//删除文章
 
 Route::post('/posts/img/upload', '\App\Http\Controllers\PostController@imageUpload');
 Route::post('/posts/comment', '\App\Http\Controllers\PostController@comment');
