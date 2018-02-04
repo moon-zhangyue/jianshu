@@ -36,7 +36,7 @@ h6, .h6 {
  */
 
 .blog-masthead {
-    background-color: #428bca;
+    background-color: #ea6f5a;
     -webkit-box-shadow: inset 0 -2px 5px rgba(0,0,0,.1);
     box-shadow: inset 0 -2px 5px rgba(0,0,0,.1);
 }
@@ -51,7 +51,7 @@ h6, .h6 {
 }
 .blog-nav-item:hover,
 .blog-nav-item:focus {
-    color: #fff;
+    color: #ea6f5a;
     text-decoration: none;
 }
 
