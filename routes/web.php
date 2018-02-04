@@ -30,9 +30,9 @@ Route::get('/posts/{post}', '\App\Http\Controllers\PostController@show');//文�
 //编辑文章
 Route::get('/posts/{post}/edit', '\App\Http\Controllers\PostController@edit'); //模型绑定
 Route::put('/posts/{post}', '\App\Http\Controllers\PostController@update');//更新文章
-Route::get('/posts/delete', '\App\Http\Controllers\PostController@delete');//删除文章
+Route::get('/posts/{post}/delete', '\App\Http\Controllers\PostController@delete');//删除文章
 
-Route::post('/posts/img/upload', '\App\Http\Controllers\PostController@imageUpload');
+Route::post('/posts/image/upload', '\App\Http\Controllers\PostController@imageUpload');//图片上传
 Route::post('/posts/comment', '\App\Http\Controllers\PostController@comment');
 Route::get('/posts/{post}/zan', '\App\Http\Controllers\PostController@zan');
 Route::get('/posts/{post}/unzan', '\App\Http\Controllers\PostController@unzan');

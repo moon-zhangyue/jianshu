@@ -12,7 +12,7 @@ class PostController extends Controller
     public function index()
     {
 //        DB::connection()->enableQueryLog();
-        $posts = Post::orderBy('created_at', 'desc')->paginate(10);
+        $posts = Post::orderBy('created_at', 'desc')->where('status', 1)->paginate(10);
 //        print_r(DB::getQueryLog());
 //        var_dump($post[0]->id);
         return view('post/index', compact('posts'));
@@ -52,20 +52,46 @@ class PostController extends Controller
     }
 
     //编辑页面
-    public function edit()
+    public function edit(Post $post)
     {
-        return view('post/edit');
+        return view('post/edit',compact('post'));
     }
 
     //编辑逻辑
-    public function update()
+    public function update(Post $post)
     {
-        return;
+        //验证
+        $this->validate(request(), [
+            'title'   => 'required|string|max:100|min:5',
+            'content' => 'required|string|min:10',
+        ]);
+
+        $post->title   = request('title');
+        $post->content = request('content');
+        $post->save();
+
+        return redirect("/posts/{$post->id}");
     }
 
     //删除逻辑
-    public function delete()
+    public function delete(Post $post)
     {
-        return;
+        //TODO 用戶权限认证
+
+        $post->status = 2; //刪除狀態
+        $post->save();
+
+        return redirect("/posts");
+    }
+
+    //图片上传
+    public function imageUpload(Request $request)
+    {
+//        $path = $request->file('wangEditorH5File')->storePublicly(md5(time()));
+        $path = $request->file('wangEditorH5File')->storePublicly(time());
+//        dd('storage/'.$path);
+//        dd(asset('storage/'.$path));
+        return asset('storage/'.$path);
+//        return 'storage/6acb82a265e8b6448cca67077594adba/8VDF7a9KbvcMI7ShndFlOi19Gx2svowD7XGloF3K.jpeg';
     }
 }
