@@ -21,7 +21,7 @@ class PostController extends Controller
     //文章详情页
     public function show(Post $post)
     {
-        return view('post/show',compact('post'));
+        return view('post/show', compact('post'));
     }
 
     //创建文章
@@ -33,7 +33,22 @@ class PostController extends Controller
     //创建逻辑
     public function store()
     {
-        return;
+//        $post = new Post();
+//
+//        $post->title   = request('title');
+//        $post->content = request('content');
+//        $post->save();
+
+        //验证
+        $this->validate(request(), [
+            'title'   => 'required|string|max:100|min:5',
+            'content' => 'required|string|min:10',
+        ]);
+        //或者
+        $param = request(['title', 'content']);
+
+        $result = Post::create($param);
+        return redirect("/posts");
     }
 
     //编辑页面
