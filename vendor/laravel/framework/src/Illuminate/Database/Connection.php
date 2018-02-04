@@ -1098,6 +1098,7 @@ class Connection implements ConnectionInterface
     public function enableQueryLog()
     {
         $this->loggingQueries = true;
+//        $this->loggingQueries = false;
     }
 
     /**

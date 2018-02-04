@@ -2,20 +2,26 @@
 
 namespace App\Http\Controllers;
 
+use App\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PostController extends Controller
 {
     //文章列表页
     public function index()
     {
-        return view('post/index',array('aa'=>'dd'));
+//        DB::connection()->enableQueryLog();
+        $posts = Post::orderBy('created_at', 'desc')->paginate(10);
+//        print_r(DB::getQueryLog());
+//        var_dump($post[0]->id);
+        return view('post/index', compact('posts'));
     }
 
     //文章详情页
-    public function show()
+    public function show(Post $post)
     {
-        return view('post/show');
+        return view('post/show',compact('post'));
     }
 
     //创建文章
