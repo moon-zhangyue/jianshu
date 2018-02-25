@@ -36,3 +36,12 @@ Route::post('/posts/image/upload', '\App\Http\Controllers\PostController@imageUp
 Route::post('/posts/comment', '\App\Http\Controllers\PostController@comment');
 Route::get('/posts/{post}/zan', '\App\Http\Controllers\PostController@zan');
 Route::get('/posts/{post}/unzan', '\App\Http\Controllers\PostController@unzan');
+
+//注册
+Route::get('/register', "\App\Http\Controllers\RegisterController@index");
+Route::post('/register', "\App\Http\Controllers\RegisterController@register");
+
+//登录
+Route::get('/login', "\App\Http\Controllers\LoginController@index")->name('login');
+Route::post('/login', "\App\Http\Controllers\LoginController@login");
+Route::get('/logout', "\App\Http\Controllers\LoginController@logout");
