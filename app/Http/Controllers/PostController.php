@@ -11,6 +11,13 @@ class PostController extends Controller
     //文章列表页
     public function index()
     {
+        $app = app();
+        $log = $app->make('log'); //绑定容器
+        $log->info('post_index',['data'=>'this is post data']);
+
+        \Log::info('post_index',['data'=>'门面模式']);
+
+
 //        DB::connection()->enableQueryLog();
         $posts = Post::orderBy('created_at', 'desc')->where('status', 1)->paginate(10);
 //        print_r(DB::getQueryLog());
