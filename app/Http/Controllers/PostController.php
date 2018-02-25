@@ -50,18 +50,25 @@ class PostController extends Controller
         $this->validate(request(), [
             'title'   => 'required|string|max:100|min:5',
             'content' => 'required|string|min:10',
+            'user_id' => 'integer',
         ]);
+
+        $user_id = \Auth::id();
+
+        $param = array_merge(request(['title', 'content']), compact('user_id'));//需要在允许注入字段里面加上user_id
+
         //或者
-        $param = request(['title', 'content']);
+//        $param = request(['title', 'content']);
 
         $result = Post::create($param);
+
         return redirect("/posts");
     }
 
     //编辑页面
     public function edit(Post $post)
     {
-        return view('post/edit',compact('post'));
+        return view('post/edit', compact('post'));
     }
 
     //编辑逻辑
@@ -72,6 +79,8 @@ class PostController extends Controller
             'title'   => 'required|string|max:100|min:5',
             'content' => 'required|string|min:10',
         ]);
+
+        $this->authorize('update', $post);//权限操作
 
         $post->title   = request('title');
         $post->content = request('content');
@@ -84,6 +93,7 @@ class PostController extends Controller
     public function delete(Post $post)
     {
         //TODO 用戶权限认证
+        $this->authorize('delete', $post);
 
         $post->status = 2; //刪除狀態
         $post->save();
@@ -98,7 +108,7 @@ class PostController extends Controller
         $path = $request->file('wangEditorH5File')->storePublicly(time());
 //        dd('storage/'.$path);
 //        dd(asset('storage/'.$path));
-        return asset('storage/'.$path);
+        return asset('storage/' . $path);
 //        return 'storage/6acb82a265e8b6448cca67077594adba/8VDF7a9KbvcMI7ShndFlOi19Gx2svowD7XGloF3K.jpeg';
     }
 }
