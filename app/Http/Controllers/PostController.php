@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Comment;
 use App\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -19,15 +20,16 @@ class PostController extends Controller
 
 
 //        DB::connection()->enableQueryLog();
-        $posts = Post::orderBy('created_at', 'desc')->where('status', 1)->paginate(10);
+        $posts = Post::orderBy('created_at', 'desc')->withCount("comments")->paginate(5);
 //        print_r(DB::getQueryLog());
-//        var_dump($post[0]->id);
+//        var_dump($posts[0]);
         return view('post/index', compact('posts'));
     }
 
     //文章详情页
     public function show(Post $post)
     {
+        $post->load('comments');
         return view('post/show', compact('post'));
     }
 
@@ -110,5 +112,21 @@ class PostController extends Controller
 //        dd(asset('storage/'.$path));
         return asset('storage/' . $path);
 //        return 'storage/6acb82a265e8b6448cca67077594adba/8VDF7a9KbvcMI7ShndFlOi19Gx2svowD7XGloF3K.jpeg';
+    }
+
+    //提交评论
+    public function comment(Post $post)
+    {
+        $this->validate(request(), [
+            'content' => 'required|min:3'
+        ]);
+
+        $comment = new Comment();
+
+        $comment->user_id = \Auth::id();
+        $comment->content = request('content');
+        $post->comments()->save($comment);
+
+        return back();
     }
 }
