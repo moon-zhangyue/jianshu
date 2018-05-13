@@ -4,7 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/resources/views/layout/main.blade.php" line="35" mnemonic="2" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="934fc5e7-0fa9-4227-8132-df993e577fdf" name="Default" comment="点赞,取消赞功能">
+    <list default="true" id="934fc5e7-0fa9-4227-8132-df993e577fdf" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/jianshu.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jianshu.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
@@ -73,7 +73,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PostController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="PostController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PostController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="136">
@@ -81,6 +81,15 @@
               <folding>
                 <element signature="e#40#56#0#PHP" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Fan.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Fan.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="192">
+              <caret line="8" column="6" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -115,8 +124,8 @@
       <file leaf-file-name="Post.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Post.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="660">
-              <caret line="62" column="5" selection-start-line="62" selection-start-column="5" selection-end-line="62" selection-end-column="5" />
+            <state relative-caret-position="96">
+              <caret line="4" selection-start-line="4" selection-end-line="4" selection-end-column="14" />
               <folding>
                 <element signature="e#23#37#0#PHP" expanded="true" />
               </folding>
@@ -215,6 +224,7 @@
         <option value="$PROJECT_DIR$/app/Post.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/PostController.php" />
         <option value="$PROJECT_DIR$/resources/views/post/search.blade.php" />
+        <option value="$PROJECT_DIR$/app/Fan.php" />
       </list>
     </option>
   </component>
@@ -530,7 +540,7 @@
       <workItem from="1525788737625" duration="353000" />
       <workItem from="1525789116191" duration="181000" />
       <workItem from="1525789364798" duration="50000" />
-      <workItem from="1526180923603" duration="8911000" />
+      <workItem from="1526180923603" duration="9172000" />
     </task>
     <task id="LOCAL-00001" summary="更新备注等">
       <created>1513607418920</created>
@@ -679,11 +689,18 @@
       <option name="project" value="LOCAL" />
       <updated>1521977118569</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="搜索,个人中心">
+      <created>1526203334998</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1526203334998</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="79673000" />
+    <option name="totallyTimeSpent" value="79934000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -696,6 +713,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" weight="0.32972974" />
@@ -703,8 +721,8 @@
       <window_info anchor="bottom" id="Version Control" order="11" weight="0.32972974" />
       <window_info id="npm" order="2" sideWeight="0.50378376" side_tool="true" weight="0.1517572" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.50869566" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4962162" visible="true" weight="0.14042553" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.50869566" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4962162" visible="true" weight="0.14042553" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32972974" />
@@ -739,18 +757,12 @@
     <MESSAGE value="评论相关" />
     <MESSAGE value="点赞功能" />
     <MESSAGE value="点赞,取消赞功能" />
-    <option name="LAST_COMMIT_MESSAGE" value="点赞,取消赞功能" />
+    <MESSAGE value="搜索,个人中心" />
+    <option name="LAST_COMMIT_MESSAGE" value="搜索,个人中心" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://H:/学习视频/Laravel5.4快速开发简书网站/项目源码/课程材料/前台/文章列表.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="174" column="10" lean-forward="true" selection-start-line="75" selection-start-column="8" selection-end-line="174" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Providers/AppServiceProvider.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="308">
@@ -1053,16 +1065,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Post.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="62" column="5" selection-start-line="62" selection-start-column="5" selection-end-line="62" selection-end-column="5" />
-          <folding>
-            <element signature="e#23#37#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/layout/nav.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="600">
@@ -1091,6 +1093,23 @@
           <folding>
             <element signature="e#40#56#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Post.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="4" selection-start-line="4" selection-end-line="4" selection-end-column="14" />
+          <folding>
+            <element signature="e#23#37#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Fan.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="8" column="6" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
         </state>
       </provider>
     </entry>
