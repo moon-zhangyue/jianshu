@@ -179,6 +179,9 @@ return [
 
         Barryvdh\Debugbar\ServiceProvider::class, //Debugbar
 
+//        Laravel\Scout\ScoutServiceProvider::class,
+//        ScoutEngines\Elasticsearch\ElasticsearchProvider::class,
+
     ],
 
     /*
