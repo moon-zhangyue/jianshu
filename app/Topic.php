@@ -19,6 +19,6 @@ class Topic extends Model
      * */
     public function postTopics()
     {
-        $this->hasMany(\App\PostTopic::class, 'topic_id');
+        return $this->hasMany(\App\PostTopic::class, 'topic_id');
     }
 }
