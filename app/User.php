@@ -23,23 +23,23 @@ class User extends Authenticatable
      * */
     public function posts()
     {
-        return $this->hasMany(\App\Post::class, 'user_id', 'id');
+        return $this->hasMany(\App\Post::class, 'user_id', 'id'); //第一个参数:关联对象  第二个:关联对象的外键   第三个:我当前模型主键
     }
 
     /*
-     * 关注我的Fan模型
+     * 我的粉丝
      * */
     public function fans()
     {
-        return $this->hasMany(\App\Post::class, 'star_id', 'id');
+        return $this->hasMany(\App\Fan::class, 'star_id', 'id');
     }
 
     /*
-     * 我关注的Fan模型
+     * 我粉的人
      * */
     public function stars()
     {
-        return $this->hasMany(\App\Post::class, 'fan_id', 'id');
+        return $this->hasMany(\App\Fan::class, 'fan_id', 'id');
     }
 
     /*
@@ -71,7 +71,7 @@ class User extends Authenticatable
      * */
     public function hasFan($uid)
     {
-        $this->fans()->where('fan_id', $uid)->count();
+        return $this->fans()->where('fan_id', $uid)->count();
     }
 
     /*
@@ -79,7 +79,9 @@ class User extends Authenticatable
      * */
     public function hasStar($uid)
     {
-        $this->stars()->where('star_id', $uid)->count();
+        $res = $this->stars()->where('star_id', $uid)->count();
+        dd($res);
+        die;
+        return $this->stars()->where('star_id', $uid)->count();
     }
-
 }

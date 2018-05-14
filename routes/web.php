@@ -57,3 +57,7 @@ Route::post('/user/{user}/unfan', '\App\Http\Controllers\UserController@unfan');
 // 个人设置
 Route::get('/user/me/setting', '\App\Http\Controllers\UserController@setting');
 Route::post('/user/me/setting', '\App\Http\Controllers\UserController@settingStore');
+
+// 专题
+Route::get('/topic/{topic}', '\App\Http\Controllers\TopicController@show'); //详情页
+Route::get('/topic/{topic}/submit', '\App\Http\Controllers\TopicController@submit'); //投稿

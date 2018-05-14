@@ -35,7 +35,7 @@ class Post extends Model
      * */
     public function user()
     {
-        return $this->belongsTo('App\User', 'user_id', 'id');//模型关联
+        return $this->belongsTo(\App\User::class, 'user_id', 'id');//模型关联
     }
 
     /*
@@ -59,7 +59,7 @@ class Post extends Model
      * */
     public function zans()
     {
-        return $this->hasMany(\App\Zan::class);
+        return $this->hasMany(\App\Zan::class)->orderBy('created_at', 'desc');
     }
 
 }
