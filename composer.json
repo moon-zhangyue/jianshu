@@ -11,6 +11,7 @@
         "laravel/framework": "5.4.*",
         "laravel/scout": "^3.0",
         "laravel/tinker": "~1.0",
+        "react/promise": "^2.5",
         "tamayo/laravel-scout-elastic": "^3.0"
     },
     "require-dev": {
