@@ -6,5 +6,5 @@ use App\Model;
 
 class PostTopic extends Model
 {
-    //
+
 }

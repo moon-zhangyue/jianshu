@@ -62,4 +62,26 @@ class Post extends Model
         return $this->hasMany(\App\Zan::class)->orderBy('created_at', 'desc');
     }
 
+    /*
+     * 属于某个作者的文章
+     * */
+    public function scopeAuthorBy(Bulider $query, $user_id)
+    {
+        return $query->where('user_id', $user_id);
+    }
+
+    public function postTopics()
+    {
+        return $this->hasMany(\App\PostTopic::class, 'post_id');
+    }
+
+    /*
+     * 不属于某个专题的文章
+     * */
+    public function scopeTopicNotBy(Builder $query, $topic_id)
+    {
+        return $query->doesntHave('postTopics', 'and', function ($q) use ($topic_id) {
+            $q->where("topic_id", $topic_id);
+        });
+    }
 }
