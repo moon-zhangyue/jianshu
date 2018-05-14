@@ -1,7 +1,7 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : lnmp
+Source Server         : local-ngnix
 Source Server Version : 50716
 Source Host           : localhost:3306
 Source Database       : jianshu
@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50716
 File Encoding         : 65001
 
-Date: 2018-05-13 21:18:49
+Date: 2018-05-14 18:12:49
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -46,13 +46,14 @@ CREATE TABLE `fans` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='粉丝关系表';
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='粉丝关系表';
 
 -- ----------------------------
 -- Records of fans
 -- ----------------------------
 INSERT INTO `fans` VALUES ('1', '1', '2', '2018-05-13 21:18:16', '2018-05-13 21:18:19');
 INSERT INTO `fans` VALUES ('2', '2', '1', '2018-05-13 21:18:29', '2018-05-13 21:18:31');
+INSERT INTO `fans` VALUES ('3', '3', '1', '2018-05-14 15:14:04', '2018-05-14 15:14:06');
 
 -- ----------------------------
 -- Table structure for migrations
@@ -130,12 +131,48 @@ INSERT INTO `posts` VALUES ('22', '达瓦达瓦达瓦大', '<p>达瓦达瓦</p>'
 INSERT INTO `posts` VALUES ('23', '达瓦达瓦达瓦大', '<p>达瓦达瓦</p>', '1', '2018-02-25 17:43:13', '2018-02-25 17:43:13', '1');
 INSERT INTO `posts` VALUES ('24', '达瓦达瓦达瓦大', '<p>达瓦达瓦</p>', '1', '2018-02-25 17:43:14', '2018-02-25 17:43:14', '1');
 INSERT INTO `posts` VALUES ('25', '达瓦达瓦达瓦大', '<p>达瓦达瓦</p>', '1', '2018-02-25 17:43:33', '2018-02-25 17:43:33', '1');
-INSERT INTO `posts` VALUES ('26', '达瓦达瓦达瓦大', '<p>达瓦达瓦</p>', '1', '2018-02-25 17:44:29', '2018-02-25 17:44:29', '1');
+INSERT INTO `posts` VALUES ('26', '达瓦达瓦达瓦大', '1', '1', '2018-02-25 17:44:29', '2018-02-25 17:44:29', '1');
 INSERT INTO `posts` VALUES ('27', '达瓦达瓦达瓦大', '<p>达瓦达瓦</p>', '1', '2018-02-25 17:49:13', '2018-02-25 17:49:13', '1');
 INSERT INTO `posts` VALUES ('28', '达瓦达瓦达瓦大', '<p>达瓦达瓦</p>', '1', '2018-02-25 17:49:21', '2018-02-25 17:49:21', '1');
 INSERT INTO `posts` VALUES ('29', '达瓦达瓦达瓦大', '<p>达瓦达瓦</p>', '1', '2018-02-25 17:52:45', '2018-02-25 17:52:45', '1');
-INSERT INTO `posts` VALUES ('30', '达瓦达瓦达瓦大', '<p>达瓦达瓦</p>', '1', '2018-02-25 17:53:50', '2018-02-25 17:53:50', '1');
-INSERT INTO `posts` VALUES ('31', '达瓦达瓦达瓦大', '<p>达瓦达瓦</p>', '1', '2018-02-25 17:56:03', '2018-02-25 17:56:03', '1');
+INSERT INTO `posts` VALUES ('30', '达瓦达瓦达瓦大', '<p>达瓦达瓦</p>', '2', '2018-02-25 17:53:50', '2018-02-25 17:53:50', '1');
+INSERT INTO `posts` VALUES ('31', '达瓦达瓦达瓦大', '<p>达瓦达瓦</p>', '2', '2018-02-25 17:56:03', '2018-02-25 17:56:03', '1');
+
+-- ----------------------------
+-- Table structure for post_topics
+-- ----------------------------
+DROP TABLE IF EXISTS `post_topics`;
+CREATE TABLE `post_topics` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `post_id` int(10) NOT NULL DEFAULT '0',
+  `topic_id` int(10) NOT NULL DEFAULT '0',
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of post_topics
+-- ----------------------------
+INSERT INTO `post_topics` VALUES ('1', '1', '1', null, null);
+
+-- ----------------------------
+-- Table structure for topics
+-- ----------------------------
+DROP TABLE IF EXISTS `topics`;
+CREATE TABLE `topics` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of topics
+-- ----------------------------
+INSERT INTO `topics` VALUES ('1', '旅游', '2018-05-14 17:05:24', '2018-05-14 17:05:27');
+INSERT INTO `topics` VALUES ('2', '吃饭', '2018-05-14 17:05:38', '2018-05-14 17:05:40');
 
 -- ----------------------------
 -- Table structure for users
@@ -152,13 +189,14 @@ CREATE TABLE `users` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_email_unique` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of users
 -- ----------------------------
 INSERT INTO `users` VALUES ('1', 'moon', '0', '57666@qq.com', '$2y$10$23hdifO.g9iPV.eQ9nqUEOsoVdFwt0M7iREHCw3ucdo1R3iw0n9C6', 's0iu9hrOSzLQQM0c3kfyN1f4BhwVu4AISkLGhkhno7xWtlGOqDAJd0ro41zG', '2018-02-25 16:52:03', '2018-02-25 16:52:03');
 INSERT INTO `users` VALUES ('2', '哈哈', '0', '11@qq.com', '$2y$10$23hdifO.g9iPV.eQ9nqUEOsoVdFwt0M7iREHCw3ucdo1R3iw0n9C6', 's0iu9hrOSzLQQM0c3kfyN1f4BhwVu4AISkLGhkhno7xWtlGOqDAJd0ro41zG', '2018-05-13 21:17:56', '2018-05-13 21:18:00');
+INSERT INTO `users` VALUES ('3', 'test', '0', '212134@qq.com', '$2y$10$23hdifO.g9iPV.eQ9nqUEOsoVdFwt0M7iREHCw3ucdo1R3iw0n9C6', 's0iu9hrOSzLQQM0c3kfyN1f4BhwVu4AISkLGhkhno7xWtlGOqDAJd0ro41zG', null, null);
 
 -- ----------------------------
 -- Table structure for zans
