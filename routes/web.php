@@ -61,3 +61,6 @@ Route::post('/user/me/setting', '\App\Http\Controllers\UserController@settingSto
 // 专题
 Route::get('/topic/{topic}', '\App\Http\Controllers\TopicController@show'); //详情页
 Route::get('/topic/{topic}/submit', '\App\Http\Controllers\TopicController@submit'); //投稿
+
+
+include_once("admin.php");
