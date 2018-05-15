@@ -10,10 +10,29 @@ Target Server Type    : MYSQL
 Target Server Version : 50716
 File Encoding         : 65001
 
-Date: 2018-05-14 18:12:49
+Date: 2018-05-15 18:44:26
 */
 
 SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for admin_users
+-- ----------------------------
+DROP TABLE IF EXISTS `admin_users`;
+CREATE TABLE `admin_users` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) NOT NULL COMMENT '用户名',
+  `password` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '密码',
+  `created_at` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of admin_users
+-- ----------------------------
+INSERT INTO `admin_users` VALUES ('1', 'admin', '$2y$10$23hdifO.g9iPV.eQ9nqUEOsoVdFwt0M7iREHCw3ucdo1R3iw0n9C6', '2018-05-15 16:54:34', '2018-05-15 16:54:34');
+INSERT INTO `admin_users` VALUES ('2', 'test', '$2y$10$575TvGdbmXHkwvOzulVizepozVoOp0z2lztkV83108TzYjSnauvnO', '2018-05-15 18:14:22', '2018-05-15 18:14:22');
 
 -- ----------------------------
 -- Table structure for comments
@@ -99,7 +118,7 @@ CREATE TABLE `posts` (
   `user_id` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `status` int(1) unsigned NOT NULL DEFAULT '1' COMMENT '状态 1:正常 2删除',
+  `status` int(1) NOT NULL DEFAULT '0' COMMENT '状态 0:未知 1:通过 -1:删除',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
