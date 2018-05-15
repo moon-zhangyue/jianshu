@@ -18,12 +18,16 @@ Route::group(['prefix' => 'admin'], function () {
     Route::group(['middleware' => 'auth:admin'], function () {
         Route::get('/home', '\App\Admin\Controllers\HomeController@index');
 
+        Route::get('/users', '\App\Admin\Controllers\UserController@index');
+        Route::get('/users/create', '\App\Admin\Controllers\UserController@create');//创建管理人员页面
+        Route::post('/users/store', '\App\Admin\Controllers\UserController@store');//创建管理人员
+
         // 系统管理
         Route::group(['middleware' => 'can:system'], function () {
             // 用户管理
-            Route::get('/users', '\App\Admin\Controllers\UserController@index');
-            Route::get('/users/create', '\App\Admin\Controllers\UserController@create');
-            Route::post('/users/store', '\App\Admin\Controllers\UserController@store');
+//            Route::get('/users', '\App\Admin\Controllers\UserController@index');
+//            Route::get('/users/create', '\App\Admin\Controllers\UserController@create');//创建管理人员页面
+//            Route::post('/users/store', '\App\Admin\Controllers\UserController@store');//创建管理人员
             Route::get('/users/{user}/role', '\App\Admin\Controllers\UserController@role');
             Route::post('/users/{user}/role', '\App\Admin\Controllers\UserController@storeRole');
 
