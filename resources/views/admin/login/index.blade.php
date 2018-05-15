@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,14 +28,14 @@
 <body class="hold-transition login-page">
 <div class="login-box">
     <div class="login-logo">
-        <a href="/adminlte/index2.html">ylaravel管理后台</a>
+        <a href="/adminlte/index2.html">简书管理后台</a>
     </div>
     <!-- /.login-logo -->
     <div class="login-box-body">
         <p class="login-box-msg">登陆</p>
 
         <form action="/admin/login" method="post">
-            {{ csrf_field() }}
+            {{csrf_field()}}
             <div class="form-group has-feedback">
                 <input name="name" type="text" class="form-control" placeholder="名字">
                 <span class="glyphicon glyphicon-envelope form-control-feedback"></span>

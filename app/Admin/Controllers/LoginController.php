@@ -21,10 +21,8 @@ class LoginController extends Controller
     /*
      * 具体登陆
      */
-    public function login()
+    public function login(Request $request)
     {
-        return 'dd';
-        die;
         $this->validate($request, [
             'name'     => 'required|min:2',
             'password' => 'required|min:6|max:30',
@@ -36,5 +34,14 @@ class LoginController extends Controller
         }
 
         return \Redirect::back()->withErrors("用户名密码错误");
+    }
+
+    /*
+     * 登出操作
+     */
+    public function logout()
+    {
+        \Auth::guard('admin')->logout();
+        return redirect('/admin/login');
     }
 }

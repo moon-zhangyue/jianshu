@@ -19,7 +19,7 @@
                 <li class="dropdown user user-menu">
                     <a href="/adminlte/#" class="dropdown-toggle" data-toggle="dropdown">
                         <img src="/adminlte/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-                        <span class="hidden-xs">test1</span>
+                        <span class="hidden-xs">{{\Auth::guard("admin")->user()->name}}</span>
                     </a>
                     <ul class="dropdown-menu">
                         <!-- User image -->
