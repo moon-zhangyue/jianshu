@@ -5,6 +5,8 @@ namespace App;
 use App\Model;
 
 use Laravel\Scout\Searchable;
+use Illuminate\Database\Eloquent\Builder;
+
 
 //默认对应post表
 class Post extends Model
@@ -84,4 +86,18 @@ class Post extends Model
             $q->where("topic_id", $topic_id);
         });
     }
+
+    /*
+     * 全局scope的方式
+     * */
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::addGlobalScope("avaiable", function (Builder $builder) {
+            $builder->whereIn('status', [0, 1]);
+        });
+    }
+
+
 }
