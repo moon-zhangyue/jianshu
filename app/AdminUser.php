@@ -25,4 +25,12 @@ class AdminUser extends Authenticatable
     protected $fillable = [
         'name', 'password',
     ];
+
+    /*
+     * 用户有哪些角色
+     * */
+    public function roles()
+    {
+        return $this->belongsToMany(\App\AdminUser::class, 'admin_role_user', 'user_id', 'role_id')->withPivot(['user_id', 'role_id']);
+    }
 }
