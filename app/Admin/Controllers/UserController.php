@@ -46,4 +46,14 @@ class UserController extends Controller
         \App\AdminUser::create(compact('name', 'password'));
         return redirect('/admin/users');
     }
+
+    /*
+     * 用户角色页面
+     */
+    public function role(\App\AdminUser $user)
+    {
+        $roles   = \App\AdminRole::all();
+        $myRoles = $user->roles;
+        return view('/admin/user/role', compact('roles', 'myRoles', 'user'));
+    }
 }
