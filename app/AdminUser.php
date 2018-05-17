@@ -63,6 +63,6 @@ class AdminUser extends Authenticatable
      * */
     public function hasPermission($permission)
     {
-        //TODO
+        return $this->isInRoles($permission->roles);
     }
 }
