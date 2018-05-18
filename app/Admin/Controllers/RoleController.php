@@ -31,4 +31,30 @@ class RoleController extends Controller
     {
         return view('/admin/role/add');
     }
+
+    /*
+     * 创建角色行为
+     * */
+    public function store()
+    {
+
+    }
+
+    /*
+     * 角色权限关系页面
+     * */
+    public function permission()
+    {
+        return view('/admin/role/permission');
+    }
+
+    /*
+     * 储存用户关系行为
+     * */
+    public function storePermission()
+    {
+
+    }
+
+
 }

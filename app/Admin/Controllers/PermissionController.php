@@ -14,7 +14,7 @@ use Illuminate\Http\Request;
 class PermissionController extends Controller
 {
     /*
-     * 用户列表
+     * 权限列表页面
      */
     public function index()
     {
@@ -23,10 +23,18 @@ class PermissionController extends Controller
     }
 
     /*
-     * 创建用户
+     * 创建权限
      */
     public function create()
     {
         return view('/admin/permission/add');
+    }
+
+    /*
+     * 储存创建权限
+     * */
+    public function store()
+    {
+
     }
 }

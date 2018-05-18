@@ -56,4 +56,12 @@ class UserController extends Controller
         $myRoles = $user->roles;
         return view('/admin/user/role', compact('roles', 'myRoles', 'user'));
     }
+
+    /*
+     * 储存用户角色
+     * */
+    public function storeRole()
+    {
+        
+    }
 }
