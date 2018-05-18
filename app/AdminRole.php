@@ -19,7 +19,7 @@ class AdminRole extends Model
      * */
     public function permissions()
     {
-        return $this->belongsToMany(\App\AdminPermission::class, 'admin_permisson_role', 'role_id', 'permission_id')->withPivot(['permission_id', 'role_id']);
+        return $this->belongsToMany(\App\AdminPermission::class, 'admin_permission_role', 'permission_id', 'role_id')->withPivot(['permission_id', 'role_id']);
     }
 
     /*
@@ -27,7 +27,7 @@ class AdminRole extends Model
      * */
     public function grantPermission($permission)
     {
-        return $this->permission()->save($permission);
+        return $this->permissions()->save($permission);
     }
 
     /*

@@ -53,30 +53,32 @@ class UserController extends Controller
      */
     public function role(\App\AdminUser $user)
     {
-        $roles   = \App\AdminRole::all();
+        $roles = \App\AdminRole::all();
+        dd($roles[0]['original']);
         $myRoles = $user->roles;
+        dd($myRoles);
         return view('/admin/user/role', compact('roles', 'myRoles', 'user'));
     }
 
     /*
      * 储存用户角色
      * */
-    public function storeRole(AdminRole $user)
+    public function storeRole(\App\AdminUser $user)
     {
         $this->validate(request(), [
             'roles' => 'required|array'
         ]);
 
-        $roles   = AdminRole::findMany(request('roles'));
-        $myRoles = $user->roles;
+        $roles = \App\AdminRole::findMany(request('roles'));
 
+        $myRoles = $user->roles;
         //增加
         $addRoles = $roles->diff($myRoles);
         foreach ($addRoles as $role) {
             $user->assignRole($role);
         }
         //删除
-        $deleteRoles = $roles->diff($roles);
+        $deleteRoles = $myRoles->diff($roles);
         foreach ($deleteRoles as $role) {
             $user->deleteRole($role);
         }

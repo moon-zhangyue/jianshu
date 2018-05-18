@@ -43,7 +43,7 @@ class RoleController extends Controller
             'description' => 'required',
         ]);
 
-        AdminRole::create(request(['name', 'description']));
+        \App\AdminRole::create(request(['name', 'description']));
 
         return redirect('/admin/roles');
     }
@@ -51,10 +51,10 @@ class RoleController extends Controller
     /*
      * 角色权限关系页面
      * */
-    public function permission(AdminRole $role)
+    public function permission(\App\AdminRole $role)
     {
         //获取所有权限
-        $permissions = AdminPermission::all();
+        $permissions = \App\AdminPermission::all();
 
         //获取当前角色权限
         $myPermissions = $role->permissions;
@@ -65,7 +65,7 @@ class RoleController extends Controller
     /*
      * 储存用户关系行为
      * */
-    public function storePermission(AdminRole $role)
+    public function storePermission(\App\AdminRole $role)
     {
         $this->validate(request(), [
             'permissions' => 'required|array'

@@ -25,7 +25,7 @@
                                 <tr>
                                     <td>{{$role->id}}.</td>
                                     <td>{{$role->name}}</td>
-                                    <td>{{$role->permission}}</td>
+                                    <td>{{$role->description}}</td>
                                     <td>
                                         <a type="button" class="btn"
                                            href="/admin/roles/{{$role->id}}/permission">权限管理</a>
