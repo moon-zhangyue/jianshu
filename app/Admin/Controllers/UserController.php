@@ -9,6 +9,7 @@
 
 namespace App\Admin\Controllers;
 
+use App\AdminRole;
 use Illuminate\Http\Request;
 use \App\AdminUser;
 
@@ -60,8 +61,25 @@ class UserController extends Controller
     /*
      * 储存用户角色
      * */
-    public function storeRole()
+    public function storeRole(AdminRole $user)
     {
-        
+        $this->validate(request(), [
+            'roles' => 'required|array'
+        ]);
+
+        $roles   = AdminRole::findMany(request('roles'));
+        $myRoles = $user->roles;
+
+        //增加
+        $addRoles = $roles->diff($myRoles);
+        foreach ($addRoles as $role) {
+            $user->assignRole($role);
+        }
+        //删除
+        $deleteRoles = $roles->diff($roles);
+        foreach ($deleteRoles as $role) {
+            $user->deleteRole($role);
+        }
+        return back();
     }
 }

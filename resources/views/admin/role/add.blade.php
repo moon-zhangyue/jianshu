@@ -15,7 +15,7 @@
                         <!-- /.box-header -->
                         <!-- form start -->
                         <form role="form" action="/admin/roles/store" method="POST">
-                            <input type="hidden" name="_token" value="RPPMc0lhvtynKELDZljXlz9UZI9uNc55ip1P8GCM">
+                            {{csrf_field()}}
                             <div class="box-body">
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">角色名</label>

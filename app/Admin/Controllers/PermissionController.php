@@ -23,7 +23,7 @@ class PermissionController extends Controller
     }
 
     /*
-     * 创建权限
+     * 创建权限页面
      */
     public function create()
     {
@@ -35,6 +35,12 @@ class PermissionController extends Controller
      * */
     public function store()
     {
+        $this->validate(request(), [
+            'name'        => 'required|min:3',
+            'description' => 'required'
+        ]);
 
+        \App\AdminPermission::create(request(['name', 'description']));
+        return redirect('/admin/permissions');
     }
 }
