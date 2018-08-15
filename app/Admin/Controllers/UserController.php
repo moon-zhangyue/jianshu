@@ -53,10 +53,11 @@ class UserController extends Controller
      */
     public function role(\App\AdminUser $user)
     {
+//        var_dump($user);
         $roles = \App\AdminRole::all();
-        dd($roles[0]['original']);
+//        dd($roles[0]['original']);
         $myRoles = $user->roles;
-        dd($myRoles);
+//        dd($myRoles);
         return view('/admin/user/role', compact('roles', 'myRoles', 'user'));
     }
 

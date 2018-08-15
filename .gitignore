@@ -2,12 +2,13 @@
 /public/hot
 /public/storage
 /storage/*.key
-/vendor
 .idea/workspace.xml
 /.vagrant
+/vendor
 Homestead.json
 Homestead.yaml
 npm-debug.log
 yarn-error.log
 .env
 .idea/workspace.xml
+vendor
