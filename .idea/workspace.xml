@@ -4,17 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/resources/views/layout/main.blade.php" line="35" mnemonic="2" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="934fc5e7-0fa9-4227-8132-df993e577fdf" name="Default" comment="搜索,个人中心">
-      <change afterPath="$PROJECT_DIR$/.idea/laravel-plugin.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jianshu.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jianshu.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Controllers/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel5.4开发简书.docx" beforeDir="false" afterPath="$PROJECT_DIR$/laravel5.4开发简书.docx" afterDir="false" />
-    </list>
+    <list default="true" id="934fc5e7-0fa9-4227-8132-df993e577fdf" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -109,8 +99,8 @@
       <file leaf-file-name="AuthServiceProvider.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Providers/AuthServiceProvider.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="720">
-              <caret line="31" column="24" selection-start-line="31" selection-start-column="18" selection-end-line="31" selection-end-column="24" />
+            <state relative-caret-position="385">
+              <caret line="24" column="7" lean-forward="true" selection-start-line="24" selection-start-column="7" selection-end-line="24" selection-end-column="7" />
               <folding>
                 <element signature="e#33#57#0#PHP" expanded="true" />
               </folding>
@@ -205,6 +195,9 @@
     <option name="PATH_TO_GIT" value="C:\Program Files\Git\bin\git.exe" />
     <option name="ROOT_SYNC" value="DONT_SYNC" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="PUSH_TAGS">
+      <GitPushTagMode />
+    </option>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -652,7 +645,7 @@
       <workItem from="1527570190913" duration="753000" />
       <workItem from="1527593091813" duration="734000" />
       <workItem from="1527644249981" duration="14000" />
-      <workItem from="1534318122340" duration="6205000" />
+      <workItem from="1534318122340" duration="6405000" />
     </task>
     <task id="LOCAL-00001" summary="更新备注等">
       <created>1513607418920</created>
@@ -920,11 +913,18 @@
       <option name="project" value="LOCAL" />
       <updated>1526634889619</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="用户授权系统 Gate">
+      <created>1534329050043</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1534329050043</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="161469000" />
+    <option name="totallyTimeSpent" value="161669000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -937,7 +937,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" weight="0.32928178" />
@@ -968,7 +967,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="引入中文validate,引入wangeditor编辑器" />
     <MESSAGE value="sb一样的wangeditor编辑器" />
     <MESSAGE value="三大模式" />
     <MESSAGE value="登录注册" />
@@ -993,7 +991,8 @@
     <MESSAGE value="权限页面搭建" />
     <MESSAGE value="权限 页面逻辑" />
     <MESSAGE value="角色管理" />
-    <option name="LAST_COMMIT_MESSAGE" value="角色管理" />
+    <MESSAGE value="用户授权系统 Gate" />
+    <option name="LAST_COMMIT_MESSAGE" value="用户授权系统 Gate" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -1319,8 +1318,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Providers/AuthServiceProvider.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
-          <caret line="31" column="24" selection-start-line="31" selection-start-column="18" selection-end-line="31" selection-end-column="24" />
+        <state relative-caret-position="385">
+          <caret line="24" column="7" lean-forward="true" selection-start-line="24" selection-start-column="7" selection-end-line="24" selection-end-column="7" />
           <folding>
             <element signature="e#33#57#0#PHP" expanded="true" />
           </folding>
