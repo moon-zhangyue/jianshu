@@ -60,9 +60,6 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/posts', '\App\Admin\Controllers\PostController@index');
         Route::post('/posts/{post}/status', '\App\Admin\Controllers\PostController@status');
         Route::group(['middleware' => 'can:post'], function () {
-            // 文章管理
-//            Route::get('/posts', '\App\Admin\Controllers\PostController@index');
-//            Route::post('/posts/{post}/status', '\App\Admin\Controllers\PostController@status');
         });
 
         // 专题模块
