@@ -1,7 +1,7 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : local-ngnix
+Source Server         : nginx-localhost
 Source Server Version : 50716
 Source Host           : localhost:3306
 Source Database       : jianshu
@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50716
 File Encoding         : 65001
 
-Date: 2018-05-16 18:40:59
+Date: 2018-08-22 18:08:30
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -23,14 +23,40 @@ CREATE TABLE `admin_permissions` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL DEFAULT '' COMMENT '功能名字',
   `description` varchar(100) NOT NULL DEFAULT '' COMMENT '描述',
-  `created_at` datetime DEFAULT NULL,
-  `updated_at` datetime DEFAULT NULL,
+  `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of admin_permissions
 -- ----------------------------
+INSERT INTO `admin_permissions` VALUES ('1', 'system', '系统管理', '2018-08-22 15:39:24', '2018-08-22 15:39:24');
+INSERT INTO `admin_permissions` VALUES ('2', 'post', '文章管理', '2018-08-22 15:39:43', '2018-08-22 15:39:43');
+INSERT INTO `admin_permissions` VALUES ('3', 'topic', '专题管理', '2018-08-22 15:40:11', '2018-08-22 15:40:11');
+INSERT INTO `admin_permissions` VALUES ('4', 'notice', '通知管理', '2018-08-22 15:40:29', '2018-08-22 15:40:29');
+
+-- ----------------------------
+-- Table structure for admin_permission_role
+-- ----------------------------
+DROP TABLE IF EXISTS `admin_permission_role`;
+CREATE TABLE `admin_permission_role` (
+  `id` int(5) NOT NULL AUTO_INCREMENT,
+  `role_id` int(5) DEFAULT '0' COMMENT '角色id',
+  `permission_id` int(5) DEFAULT '0' COMMENT '权限id',
+  `created_at` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  `updated_at` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of admin_permission_role
+-- ----------------------------
+INSERT INTO `admin_permission_role` VALUES ('1', '1', '1', null, null);
+INSERT INTO `admin_permission_role` VALUES ('2', '2', '1', null, null);
+INSERT INTO `admin_permission_role` VALUES ('3', '3', '1', null, null);
+INSERT INTO `admin_permission_role` VALUES ('4', '4', '1', null, null);
+INSERT INTO `admin_permission_role` VALUES ('5', '2', '2', null, null);
 
 -- ----------------------------
 -- Table structure for admin_permission_user
@@ -41,11 +67,12 @@ CREATE TABLE `admin_permission_user` (
   `role_id` int(10) NOT NULL COMMENT '角色id',
   `user_id` int(10) NOT NULL COMMENT '用户id',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of admin_permission_user
 -- ----------------------------
+INSERT INTO `admin_permission_user` VALUES ('1', '1', '1');
 
 -- ----------------------------
 -- Table structure for admin_roles
@@ -58,11 +85,13 @@ CREATE TABLE `admin_roles` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of admin_roles
 -- ----------------------------
+INSERT INTO `admin_roles` VALUES ('1', 'sys-manager', '系统管理员', '2018-08-22 15:41:01', '2018-08-22 15:41:01');
+INSERT INTO `admin_roles` VALUES ('2', 'post-manager', '文章管理员', '2018-08-22 16:16:02', '2018-08-22 16:16:02');
 
 -- ----------------------------
 -- Table structure for admin_role_user
@@ -73,11 +102,13 @@ CREATE TABLE `admin_role_user` (
   `role_id` int(10) NOT NULL COMMENT '角色id',
   `user_id` int(10) NOT NULL COMMENT '用户id',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of admin_role_user
 -- ----------------------------
+INSERT INTO `admin_role_user` VALUES ('1', '1', '1');
+INSERT INTO `admin_role_user` VALUES ('3', '2', '1');
 
 -- ----------------------------
 -- Table structure for admin_users
@@ -249,13 +280,14 @@ CREATE TABLE `topics` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of topics
 -- ----------------------------
 INSERT INTO `topics` VALUES ('1', '旅游', '2018-05-14 17:05:24', '2018-05-14 17:05:27');
 INSERT INTO `topics` VALUES ('2', '吃饭', '2018-05-14 17:05:38', '2018-05-14 17:05:40');
+INSERT INTO `topics` VALUES ('3', '测试专题', '2018-08-22 17:54:54', '2018-08-22 17:54:54');
 
 -- ----------------------------
 -- Table structure for users
