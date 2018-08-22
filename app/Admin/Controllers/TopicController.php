@@ -26,8 +26,23 @@ class TopicController extends Controller
         return view('admin/topic/create');
     }
 
-    public function destroy()
+    //添加专题
+    public function store(Request $request)
     {
+        $this->validate($request, [
+            'name' => 'required|min:3'
+        ]);
 
+        \App\Topic::create(request(['name']));
+        return redirect('/admin/topics');
+    }
+
+    public function destroy(Topic $topic)
+    {
+        $topic->delete();
+        return [
+            'error' => 0,
+            'msg'   => '',
+        ];
     }
 }
