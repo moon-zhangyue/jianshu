@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50716
 File Encoding         : 65001
 
-Date: 2018-08-22 18:08:30
+Date: 2018-08-23 17:55:13
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -188,6 +188,23 @@ INSERT INTO `migrations` VALUES ('2', '2014_10_12_100000_create_password_resets_
 INSERT INTO `migrations` VALUES ('3', '2018_02_04_032255_create_posts_table', '2');
 
 -- ----------------------------
+-- Table structure for notice
+-- ----------------------------
+DROP TABLE IF EXISTS `notice`;
+CREATE TABLE `notice` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `title` varchar(50) DEFAULT '' COMMENT '标题',
+  `content` varchar(1000) DEFAULT '' COMMENT '内容',
+  `created_at` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `updated_at` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of notice
+-- ----------------------------
+
+-- ----------------------------
 -- Table structure for password_resets
 -- ----------------------------
 DROP TABLE IF EXISTS `password_resets`;
@@ -312,6 +329,21 @@ CREATE TABLE `users` (
 INSERT INTO `users` VALUES ('1', 'moon', '0', '57666@qq.com', '$2y$10$23hdifO.g9iPV.eQ9nqUEOsoVdFwt0M7iREHCw3ucdo1R3iw0n9C6', 's0iu9hrOSzLQQM0c3kfyN1f4BhwVu4AISkLGhkhno7xWtlGOqDAJd0ro41zG', '2018-02-25 16:52:03', '2018-02-25 16:52:03');
 INSERT INTO `users` VALUES ('2', '哈哈', '0', '11@qq.com', '$2y$10$23hdifO.g9iPV.eQ9nqUEOsoVdFwt0M7iREHCw3ucdo1R3iw0n9C6', 's0iu9hrOSzLQQM0c3kfyN1f4BhwVu4AISkLGhkhno7xWtlGOqDAJd0ro41zG', '2018-05-13 21:17:56', '2018-05-13 21:18:00');
 INSERT INTO `users` VALUES ('3', 'test', '0', '212134@qq.com', '$2y$10$23hdifO.g9iPV.eQ9nqUEOsoVdFwt0M7iREHCw3ucdo1R3iw0n9C6', 's0iu9hrOSzLQQM0c3kfyN1f4BhwVu4AISkLGhkhno7xWtlGOqDAJd0ro41zG', null, null);
+
+-- ----------------------------
+-- Table structure for user_notice
+-- ----------------------------
+DROP TABLE IF EXISTS `user_notice`;
+CREATE TABLE `user_notice` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `user_id` int(10) DEFAULT '0' COMMENT '用户id',
+  `notice_id` int(10) DEFAULT '0' COMMENT '通知id',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of user_notice
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for zans
