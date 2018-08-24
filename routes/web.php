@@ -62,5 +62,8 @@ Route::post('/user/me/setting', '\App\Http\Controllers\UserController@settingSto
 Route::get('/topic/{topic}', '\App\Http\Controllers\TopicController@show'); //详情页
 Route::get('/topic/{topic}/submit', '\App\Http\Controllers\TopicController@submit'); //投稿
 
+// 通知
+Route::get('/notice', '\App\Http\Controllers\NoticeController@index');
+
 
 include_once("admin.php");

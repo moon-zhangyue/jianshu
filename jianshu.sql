@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50716
 File Encoding         : 65001
 
-Date: 2018-08-23 17:55:13
+Date: 2018-08-24 18:29:48
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -170,6 +170,26 @@ INSERT INTO `fans` VALUES ('2', '2', '1', '2018-05-13 21:18:29', '2018-05-13 21:
 INSERT INTO `fans` VALUES ('3', '3', '1', '2018-05-14 15:14:04', '2018-05-14 15:14:06');
 
 -- ----------------------------
+-- Table structure for jobs
+-- ----------------------------
+DROP TABLE IF EXISTS `jobs`;
+CREATE TABLE `jobs` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `queue` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `attempts` tinyint(3) unsigned NOT NULL,
+  `reserved_at` int(10) unsigned DEFAULT NULL,
+  `available_at` int(10) unsigned NOT NULL,
+  `created_at` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `jobs_queue_reserved_at_index` (`queue`,`reserved_at`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- ----------------------------
+-- Records of jobs
+-- ----------------------------
+
+-- ----------------------------
 -- Table structure for migrations
 -- ----------------------------
 DROP TABLE IF EXISTS `migrations`;
@@ -178,7 +198,7 @@ CREATE TABLE `migrations` (
   `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of migrations
@@ -186,23 +206,25 @@ CREATE TABLE `migrations` (
 INSERT INTO `migrations` VALUES ('1', '2014_10_12_000000_create_users_table', '1');
 INSERT INTO `migrations` VALUES ('2', '2014_10_12_100000_create_password_resets_table', '1');
 INSERT INTO `migrations` VALUES ('3', '2018_02_04_032255_create_posts_table', '2');
+INSERT INTO `migrations` VALUES ('4', '2018_08_24_182738_create_jobs_table', '3');
 
 -- ----------------------------
--- Table structure for notice
+-- Table structure for notices
 -- ----------------------------
-DROP TABLE IF EXISTS `notice`;
-CREATE TABLE `notice` (
+DROP TABLE IF EXISTS `notices`;
+CREATE TABLE `notices` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
-  `title` varchar(50) DEFAULT '' COMMENT '标题',
+  `title` varchar(50) DEFAULT NULL COMMENT '标题',
   `content` varchar(1000) DEFAULT '' COMMENT '内容',
   `created_at` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of notice
+-- Records of notices
 -- ----------------------------
+INSERT INTO `notices` VALUES ('1', 'dd', 'dawd', '2018-08-24 17:01:08', '2018-08-24 17:01:08');
 
 -- ----------------------------
 -- Table structure for password_resets

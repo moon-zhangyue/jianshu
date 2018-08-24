@@ -79,16 +79,15 @@ class User extends Authenticatable
      * */
     public function hasStar($uid)
     {
-//        $res = $this->stars()->where('star_id', $uid)->count();
         return $this->stars()->where('star_id', $uid)->count();
     }
 
     /*
      * 我收到的通知
      * */
-    public function notices()
+    public function notice()
     {
-        return $this->belongsToMany(Notice::class, 'user_notice', 'user_id', 'notice_id')->withPivot(['user_id', 'notice_id']);
+        return $this->belongsToMany(\App\Notice::class, 'user_notice', 'user_id', 'notice_id')->withPivot(['user_id', 'notice_id']);
     }
 
     /*
@@ -96,7 +95,7 @@ class User extends Authenticatable
      */
     public function addNotice($notice)
     {
-        return $this->notices()->save($notice);
+        return $this->notice()->save($notice);
     }
 
     /*
@@ -104,6 +103,6 @@ class User extends Authenticatable
      */
     public function deleteNotice($notice)
     {
-        return $this->notices()->detach($notice);
+        return $this->notice()->detach($notice);
     }
 }
