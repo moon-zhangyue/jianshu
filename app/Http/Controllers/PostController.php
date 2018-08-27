@@ -21,7 +21,10 @@ class PostController extends Controller
 
 
 //        DB::connection()->enableQueryLog();
-        $posts = Post::orderBy('created_at', 'desc')->withCount(["comments", "zans"])->paginate(5);
+        $posts = Post::orderBy('created_at', 'desc')->withCount(["comments", "zans"])->with('user')->paginate(5);
+
+        $posts->load('user'); //预加载
+
 //        print_r(DB::getQueryLog());
 //        var_dump($posts[0]);
         return view('post/index', compact('posts'));

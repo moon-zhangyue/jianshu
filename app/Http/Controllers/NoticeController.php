@@ -19,7 +19,7 @@ class NoticeController extends Controller
     public function index()
     {
         // 获取我收到的消息
-        $user    = \Auth::user();
+        $user    = \Auth::user();//这个对象是空的
         $notices = $user->notice;
         return view("notice/index", compact('notices'));
     }
