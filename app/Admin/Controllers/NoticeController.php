@@ -9,13 +9,12 @@
 
 namespace App\Admin\Controllers;
 
-use App\Notice;
 use Illuminate\Http\Request;
 
 class NoticeController extends Controller
 {
 //    protected $guarded = [];
-//    protected $fillable = ['title', 'content'];//开启白名单字段
+    protected $fillable = ['title', 'content'];//开启白名单字段
 
     public function index()
     {
@@ -35,7 +34,12 @@ class NoticeController extends Controller
             'content' => 'required|string'
         ]);
 
-        \App\Notice::create(request(['title', 'content']));
+//        $request->except('_token', '_method');//也不管用
+
+        $notice = \App\Notice::create(request(['title', 'content']));
+
+        dispatch(new \App\Jobs\SendMessage($notice));//消息分发给队列
+
         return redirect('/admin/notice');
     }
 }

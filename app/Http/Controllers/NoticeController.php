@@ -20,7 +20,7 @@ class NoticeController extends Controller
     {
         // 获取我收到的消息
         $user    = \Auth::user();
-        $notices = $user->notices;
+        $notices = $user->notice;
         return view("notice/index", compact('notices'));
     }
 }
