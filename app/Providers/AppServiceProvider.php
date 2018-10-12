@@ -41,5 +41,6 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         //
+        var_dump();
     }
 }
