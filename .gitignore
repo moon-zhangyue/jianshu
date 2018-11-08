@@ -14,3 +14,4 @@ yarn-error.log
 vendor
 /.idea
 /package.json
+/public/adminlte/package-lock.json
